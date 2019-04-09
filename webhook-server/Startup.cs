@@ -18,13 +18,12 @@ namespace webhook_server
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             
-            app.Run(async (context) =>
+            app.Run( async (context) =>
             {
                 context.Request.Headers.TryGetValue("Validation-Token", out StringValues validationToken);
                 context.Response.Headers.Add("Validation-Token", validationToken);
-                if (context.Request.Path == "/webhookcallback")
+                if (context.Request.Path == "/webhook" && context.Request.Method == "POST")
                 {
-                    Console.WriteLine(context.Request.Method);
                     using (StreamReader reader = new StreamReader(context.Request.Body, Encoding.UTF8))
                     {
                         var str = reader.ReadToEnd();
