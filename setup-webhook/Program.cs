@@ -6,13 +6,14 @@ namespace setup_webhook
 {
     class Program
     {
-        private const string RINGCENTRAL_CLIENT_ID = "<RINGCENTRAL_CLIENT_ID>";
-        private const string RINGCENTRAL_CLIENT_SECRET = "<RINGCENTRAL_CLIENT_SECRET>";
-        private const string RINGCENTRAL_SERVER_URL = "https://platform.devtest.ringcentral.com";
-        private const string RINGCENTRAL_USERNAME = "<RINGCENTRAL_USERNAME>";
-        private const string RINGCENTRAL_EXTENSION = "";
-        private const string RINGCENTRAL_PASSWORD = "<RINGCENTRAL_PASSWORD>";
-        private const string RINGCENTRAL_WEBHOOK_ADDRESS = "<RINGCENTRAL_WEBHOOK_ADDRESS>";
+        private static string RINGCENTRAL_CLIENT_ID = Environment.GetEnvironmentVariable("RINGCENTRAL_CLIENT_ID");
+        private static string RINGCENTRAL_CLIENT_SECRET = Environment.GetEnvironmentVariable("RINGCENTRAL_CLIENT_SECRET");
+        private static string RINGCENTRAL_SERVER_URL = Environment.GetEnvironmentVariable("RINGCENTRAL_SERVER_URL");
+        private static string RINGCENTRAL_USERNAME = Environment.GetEnvironmentVariable("RINGCENTRAL_USERNAME");
+        private static string RINGCENTRAL_EXTENSION = Environment.GetEnvironmentVariable("RINGCENTRAL_EXTENSION");
+        private static string RINGCENTRAL_PASSWORD = Environment.GetEnvironmentVariable("RINGCENTRAL_PASSWORD");
+
+        private const string RINGCENTRAL_WEBHOOK_ADDRESS = "https://4db0953a1d01.ngrok.io/webhook";
 
         static async Task Main(string[] args)
         {
